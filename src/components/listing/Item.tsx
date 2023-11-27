@@ -1,19 +1,22 @@
-export type TypeItem = {  
+export interface IItem {  
   listing_id: number,
   url: string,
-  MainImage: Record<string, object>,
+  MainImage: IImage,
   title: string,
   currency_code: string,
   price: string,
   quantity: number  
 }
 
-type typeProps = {
-  item: TypeItem,
-  key: number
+interface IItemProps {
+  item: IItem, 
 }
 
-const Item = ({item}: typeProps) => { 
+interface IImage {
+  url_570xN: string
+}
+
+const Item = ({item}: IItemProps) => { 
   const {url, MainImage, title, currency_code, price, quantity} = item 
   
   const getTitle = (title: string) => {
